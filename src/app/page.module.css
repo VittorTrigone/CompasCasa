@@ -1,0 +1,205 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.formContainer {
+  margin-bottom: 40px;
+  padding: 30px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: rgba(0,0,0,0.2);
+}
+
+.cardContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.storeBadge {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  padding: 4px 8px;
+  border-radius: 4px;
+  align-self: flex-start;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  color: #f8fafc;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.prices {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.priceItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.priceValue {
+  font-weight: 600;
+  color: #10b981;
+  font-size: 1.1rem;
+}
+
+.cardActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--card-border);
+  padding-top: 16px;
+}
+
+.externalLink {
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.externalLink:hover {
+  color: var(--primary-hover);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: #94a3b8;
+}
+
+.hiddenInput {
+  display: none;
+}
+.totalsCard {
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.totalsCard h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.totalsContent {
+  display: flex;
+  gap: 2rem;
+}
+
+.totalItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.totalItem span {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.totalItem strong {
+  font-size: 1.5rem;
+  color: #10b981;
+}
+
+.roomSections {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.roomSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.roomTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.roomSelect {
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.roomSelect option {
+  background-color: #0f172a;
+  color: white;
+}

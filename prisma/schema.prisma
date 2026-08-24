@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Item {
+  id               String   @id @default(cuid())
+  url              String
+  title            String
+  imageUrl         String?
+  store            String?
+  room             String   @default("Geral")
+  cashPrice        Float?
+  installmentPrice Float?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
