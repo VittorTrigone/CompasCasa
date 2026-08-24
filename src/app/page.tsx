@@ -206,11 +206,11 @@ export default function Home() {
           </div>
 
           <div className={styles.roomSections}>
-            {Object.entries(itemsByRoom).map(([r, roomItems]) => (
+            {Object.entries(itemsByRoom).map(([r, roomItems]: [string, any[]]) => (
               <div key={r} className={styles.roomSection}>
                 <h2 className={styles.roomTitle}>{r}</h2>
                 <div className={styles.grid}>
-                  {roomItems.map((item) => (
+                  {roomItems.map((item: any) => (
                     <div key={item.id} className={`glass ${styles.card}`}>
                       {item.imageUrl && (
                         // eslint-disable-next-line @next/next/no-img-element
