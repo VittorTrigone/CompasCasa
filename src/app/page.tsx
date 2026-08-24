@@ -206,7 +206,7 @@ export default function Home() {
           </div>
 
           <div className={styles.roomSections}>
-            {Object.entries(itemsByRoom).map(([r, roomItems]: [string, any[]]) => (
+            {(Object.entries(itemsByRoom) as [string, any[]][]).map(([r, roomItems]) => (
               <div key={r} className={styles.roomSection}>
                 <h2 className={styles.roomTitle}>{r}</h2>
                 <div className={styles.grid}>
