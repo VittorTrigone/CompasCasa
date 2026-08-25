@@ -9,6 +9,7 @@ export default function Home() {
   const [items, setItems] = useState<any[]>([]);
   const [url, setUrl] = useState("");
   const [room, setRoom] = useState("Cozinha");
+  const [manualPrice, setManualPrice] = useState("");
   const [loading, setLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [isClient, setIsClient] = useState(false);
@@ -38,14 +39,23 @@ export default function Home() {
       const scrapedData = await scrapeRes.json();
       if (scrapedData.error) throw new Error(scrapedData.error);
       
+      const priceVal = manualPrice ? parseFloat(manualPrice.replace(',', '.')) : null;
+      
       const saveRes = await fetch("/api/items", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...scrapedData, url, room }),
+        body: JSON.stringify({ 
+          ...scrapedData, 
+          url, 
+          room,
+          cashPrice: priceVal !== null && !isNaN(priceVal) ? priceVal : scrapedData.cashPrice,
+          installmentPrice: priceVal !== null && !isNaN(priceVal) ? priceVal : scrapedData.installmentPrice
+        }),
       });
       
       if (saveRes.ok) {
         setUrl("");
+        setManualPrice("");
         fetchItems();
       }
     } catch (err: any) {
@@ -178,6 +188,14 @@ export default function Home() {
           className="input-field" 
           value={url}
           onChange={(e) => setUrl(e.target.value)}
+        />
+        <input 
+          type="text" 
+          placeholder="Preço R$ (Opcional)" 
+          className="input-field" 
+          style={{ maxWidth: '160px' }}
+          value={manualPrice}
+          onChange={(e) => setManualPrice(e.target.value)}
         />
         <button type="submit" className="btn-primary" disabled={loading}>
           {loading ? <Loader2 className="animate-spin" /> : <Plus />}
